@@ -7,7 +7,7 @@
   tasks: 
     - name: Install package 
       yum:
-        name: httpd
+        name: {{ package }}
         state: latest
 ...
 
