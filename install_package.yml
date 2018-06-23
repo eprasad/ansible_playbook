@@ -1,0 +1,13 @@
+---
+- name: Playbook to test cloudforms embedded ansible
+  hosts: all
+  gather_facts: no 
+  vars:
+    package: 'httpd'
+  tasks: 
+    - name: Install package 
+      yum:
+        name: httpd
+        state: latest
+...
+
