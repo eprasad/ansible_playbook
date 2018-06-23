@@ -1,13 +1,9 @@
 ---
-- name: Playbook to test cloudforms embedded ansible
+- name: Install Package
   hosts: all
-  gather_facts: no 
-  vars:
-    package: 'httpd'
-  tasks: 
-    - name: Install package 
-      yum:
-        name: httpd
-        state: latest
-...
+  vars: 
+    package: from_playbook
 
+  tasks:
+  - name: Install package
+    yum: name={{ package }} state=present
