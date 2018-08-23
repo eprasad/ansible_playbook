@@ -1,0 +1,15 @@
+---
+- name: check httpd
+  hosts: localhost
+  gather_facts: no
+  vars:
+    - website: http://www.example.com
+  tasks:
+    - uri:
+        url: '{{ website }}'
+        return_content: yes
+      register: content
+
+    - debug: 
+        var: content
+
