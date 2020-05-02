@@ -3,18 +3,19 @@
   hosts: localhost
   gather_facts: yes
   vars:
-    ipaddress: 192.168.1.1
+    ipaddress: 98.136.103.24
   tasks: 
     - name: run mtr against the alerted ip address for 5 second 
-      shell: mtr -c5 "{{ ipaddress }}"
-      register: mtr_output
-
+      shell: mtr -c5 "{{ ipaddress }}" > /tmp/output.txt
+      async: 60
+      poll: 0
+     
     - name: run ping for against the alerted ip address for 5 seconds
       shell: ping -c5 "{{ ipaddress }}"
       register: ping_output
 
     - name: run traceroute and capture output 
       shell: traceroute "{{ ipaddress  }}" 
-      regisrer: traceroute_output
+      register: traceroute_output
 
 ...
