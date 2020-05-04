@@ -9,6 +9,8 @@
       shell: mtr -c5 "{{ ipaddress }}" > /tmp/output.txt
       async: 60
       poll: 0
+      register: mtr_output
+      ignore_error:
      
     - name: run ping for against the alerted ip address for 5 seconds
       shell: ping -c5 "{{ ipaddress }}"
@@ -17,5 +19,6 @@
     - name: run traceroute and capture output 
       shell: traceroute "{{ ipaddress  }}" 
       register: traceroute_output
+     
 
 ...
