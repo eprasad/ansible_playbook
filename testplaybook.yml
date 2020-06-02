@@ -1,0 +1,11 @@
+---
+- name: Test Playbook
+  hosts: all
+  tasks: 
+    - name: collect facts
+      setup:
+      register: setup.output
+      
+    - name: print facts
+      debug:
+        var: setup.output
