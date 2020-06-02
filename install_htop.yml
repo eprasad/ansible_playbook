@@ -2,7 +2,7 @@
 - name: Install Package
   hosts: all
   vars: 
-    package: htop
+    package: rpm
 
   tasks:
   - name: Install package
