@@ -2,6 +2,7 @@
 - hosts: localhost
   connection: local
   gather_facts: no
+  become: true
   tasks:
     - name: execute script to generate report
       script: /root/test1.yml
