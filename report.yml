@@ -1,7 +1,6 @@
 ---
 - hosts: localhost
   connection: local
-  remote_user: root
   gather_facts: no
   tasks:
     - name: create directory to generate and store reports
@@ -10,7 +9,7 @@
         state: directory
 
     - name: create a report data
-      shell: ansible -m setup --tree /out/report all
+      command: ansible -m setup --tree /out/report all
 
     - name: generate report
-      shell: ansible-cmdb /out/report > /opt/report/system-overview.$(date +%Y%m%d%H%M%S).html
+      command: ansible-cmdb /out/report > /opt/report/system-overview.$(date +%Y%m%d%H%M%S).html
