@@ -1,0 +1,15 @@
+---
+- hosts: localhost
+  gather_facts: no
+  tasks:
+    - name: create director to generate and store reports
+      file: 
+        path: /opt/report
+        state: directory
+        
+    - name: create a report data 
+      shell: ansible -m setup --tree /out/report all
+      
+   -  name: generate report
+      shell: ansible-cmdb /out/report > /opt/report/system-overview.$(date +%Y%m%d%H%M%S)
+
