@@ -3,13 +3,6 @@
   connection: local
   gather_facts: no
   tasks:
-    - name: create directory to generate and store reports
-      file:
-        path: /opt/report
-        state: directory
-
-    - name: create a report data
-      command: ansible -m setup --tree /out/report all
-
-    - name: generate report
-      command: ansible-cmdb /out/report > /opt/report/system-overview.$(date +%Y%m%d%H%M%S).html
+    - name: execute script to generate report
+      script: /root/test1.yml
+      
