@@ -1,6 +1,7 @@
 ---
 - hosts: localhost
   connection: local
+  ansible_user: root
   gather_facts: no
   tasks:
     - name: create directory to generate and store reports
