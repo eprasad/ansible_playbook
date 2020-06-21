@@ -1,0 +1,5 @@
+---
+- hosts: hardening
+  gather_facts: true
+  roles:
+    - Ansible-RHEL7-CIS-Benchmarks 
