@@ -14,4 +14,4 @@
       shell: ansible -m setup --tree /out/report all
 
     - name: generate report
-      shell: ansible-cmdb /out/report > /opt/report/system-overview.$(date +%Y%m%d%H%M%S).html
+      shell: /usr/local/bin/ansible-cmdb /out/report > /opt/report/system-overview.$(date +%Y%m%d%H%M%S).html
