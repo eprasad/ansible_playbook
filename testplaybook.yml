@@ -4,7 +4,7 @@
   tasks: 
     - name: collect facts
       setup:
-      register: setup.output
+      register: setup
       
     - name: print facts
       debug:
